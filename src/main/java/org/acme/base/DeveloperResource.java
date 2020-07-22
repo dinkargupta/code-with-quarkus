@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.base;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;

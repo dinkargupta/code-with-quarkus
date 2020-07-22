@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.base;
 
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.*;
@@ -9,7 +9,7 @@ import javax.ws.rs.core.UriInfo;
 @Path("/hello")
 public class GreetingResource {
 
-public static enum Order {
+public enum Order {
     desc, asc
 }
 
