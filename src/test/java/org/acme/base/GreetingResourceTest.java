@@ -20,4 +20,14 @@ public class GreetingResourceTest {
              .statusCode(200)
              .body(is("URI: " + EXPECTED_URI + " - Order " + EXPECTED_ORDER + " - Authorization: " + EXPECTED_AUTH));
     }
+
+    @Test
+    public void testConfiguredHelloEndpoint() {
+        String EXPECTED_RESPONSE = "I am Alive !";
+        given()
+                .when().get("http://localhost:8081/hello/live")
+                .then()
+                .statusCode(200)
+                .body(is(EXPECTED_RESPONSE));
+    }
 }

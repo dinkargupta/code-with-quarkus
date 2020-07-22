@@ -1,5 +1,7 @@
 package org.acme.base;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -17,6 +19,16 @@ public enum Order {
     @Produces(MediaType.TEXT_PLAIN)
     public String hello(@Context UriInfo uriInfo, @QueryParam("order") Order order, @NotBlank @HeaderParam("authorization") String authorization) {
         return String.format("URI: %s - Order %s - Authorization: %s", uriInfo.getAbsolutePath(), order, authorization);
+    }
+
+    @ConfigProperty(name = "greeting.message")
+    String message;
+
+    @GET
+    @Path("/live")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String helloConfig() {
+        return message;
     }
 
     @POST
