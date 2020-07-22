@@ -19,4 +19,14 @@ public class ApplicationRoutesTest {
                 .body(is(EXPECTED_RESPONSE));
     }
 
+    @Test
+    public void testDeclarativeRouteEndpoint() {
+        String EXPECTED_RESPONSE = "OK Dinkar you have been routed!";
+        given()
+                .when()
+                .get("/declarativeOK?name=Dinkar")
+                .then()
+                .statusCode(200)
+                .body(is(EXPECTED_RESPONSE));
+    }
 }
