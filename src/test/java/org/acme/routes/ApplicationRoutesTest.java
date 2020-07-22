@@ -29,4 +29,16 @@ public class ApplicationRoutesTest {
                 .statusCode(200)
                 .body(is(EXPECTED_RESPONSE));
     }
+
+    @Test
+    public void testFilters() {
+        String EXPECTED_RESPONSE = "OK Dinkar you have been routed!";
+        given()
+                .when()
+                .get("/declarativeOK?name=Dinkar")
+                .then()
+                .statusCode(200)
+                .header("V-Header","Header Added by Vert.X Filter")
+                .body(is(EXPECTED_RESPONSE));
+    }
 }
