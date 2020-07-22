@@ -1,3 +1,5 @@
+# my learning ground on Quarkus... nothing special.. just playground.
+
 # code-with-quarkus project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
