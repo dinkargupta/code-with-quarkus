@@ -1,6 +1,8 @@
 package org.acme.routes;
 
+import io.quarkus.vertx.http.runtime.filters.Filters;
 import io.quarkus.vertx.web.Route;
+import io.quarkus.vertx.web.RouteFilter;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
@@ -21,5 +23,18 @@ public class ApplicationRoutes {
             name = "world";
         }
         routingContext.response().end("OK "+name + " you have been routed!");
+    }
+
+    public void filters(@Observes Filters filters) {
+        filters.register(rc -> {
+            rc.response().putHeader("V-Header", "Header Added by Vert.X Filter");
+            rc.next();
+        }, 10);
+    }
+
+    @RouteFilter(100)
+    public void routeFilters(RoutingContext routingContext) {
+        routingContext.response().putHeader("V-Header", "Header Added by Vert.X Filter");
+        routingContext.next();
     }
 }
