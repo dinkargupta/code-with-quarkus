@@ -1,18 +1,16 @@
 package org.acme.base;
 
-import org.junit.jupiter.api.Test;
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.is;
-
-import java.util.Map;
-import java.util.HashMap;
 
 @QuarkusTest
-public class DeveloperResourceTest {
+public class DeveloperServiceTest {
     
     @Test
     public void testDeveloperEndpoint() {
@@ -46,6 +44,17 @@ public class DeveloperResourceTest {
                 .then()
                 .statusCode(200)
                 .body(is("[Read, Write, Update, Delete]"));
+
+    }
+
+    @Test
+    public void testDevModeEndpoint() {
+
+        given()
+                .when().get("/developer/devmode")
+                .then()
+                .statusCode(200)
+                .body(is("true"));
 
     }
 

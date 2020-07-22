@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
 @Path("/hello")
-public class GreetingResource {
+public class GreetingService {
 
 public enum Order {
     desc, asc
