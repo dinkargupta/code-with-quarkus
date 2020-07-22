@@ -37,4 +37,16 @@ public class DeveloperResourceTest {
             .body(is(EXPECTED_JSON));
 
     }
+
+    @Test
+    public void testDeveloperGrantsEndpoint() {
+
+        given()
+                .when().get("/developer/grants")
+                .then()
+                .statusCode(200)
+                .body(is("[Read, Write, Update, Delete]"));
+
+    }
+
 }
