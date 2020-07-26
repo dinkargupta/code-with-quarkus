@@ -1,6 +1,8 @@
 package org.acme.base;
 
+import io.quarkus.runtime.configuration.ProfileManager;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.jboss.logging.Logger;
 
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.*;
@@ -11,13 +13,16 @@ import javax.ws.rs.core.UriInfo;
 @Path("/hello")
 public class GreetingService {
 
-public enum Order {
-    desc, asc
-}
+    public enum Order {
+        desc, asc
+    }
 
+    private static Logger logger = Logger.getLogger(GreetingService.class);
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello(@Context UriInfo uriInfo, @QueryParam("order") Order order, @NotBlank @HeaderParam("authorization") String authorization) {
+        //System.out.println("Active profile is: " + ProfileManager.getActiveProfile());
+        logger.info("Active profile is: " + ProfileManager.getActiveProfile());
         return String.format("URI: %s - Order %s - Authorization: %s", uriInfo.getAbsolutePath(), order, authorization);
     }
 
@@ -59,5 +64,13 @@ public enum Order {
     public String lockResource(@PathParam("id") long id) {
         System.out.println("Locked");
         return id + " locked";
+    }
+
+    @GET
+    @Path("/log")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String helloLog() {
+        logger.info("I said Hello");
+        return "hello";
     }
 }

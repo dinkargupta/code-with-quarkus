@@ -38,7 +38,6 @@ public class DeveloperService {
     @Path("/devmode")
     @Produces(MediaType.TEXT_PLAIN)
     public String inDevMode() {
-        System.out.println("Boolean Value: " + devMode.booleanValue());
         return devMode ? "true" : "false";
     }
 

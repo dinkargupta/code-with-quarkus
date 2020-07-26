@@ -24,7 +24,6 @@ public class DeveloperServiceTest {
         // @TODO improve this Json creation.. find a better way
         char quote='"';
         String EXPECTED_JSON = "{"+quote+"id"+quote+":1,"+quote+"name"+quote+":"+quote+"Ada"+quote+"}";
-        System.out.println("Expected JSON is " + EXPECTED_JSON);
 
         given()
           .contentType(CONTENT_TYPE)
