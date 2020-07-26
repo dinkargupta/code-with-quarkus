@@ -21,7 +21,6 @@ public class GreetingService {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello(@Context UriInfo uriInfo, @QueryParam("order") Order order, @NotBlank @HeaderParam("authorization") String authorization) {
-        //System.out.println("Active profile is: " + ProfileManager.getActiveProfile());
         logger.info("Active profile is: " + ProfileManager.getActiveProfile());
         return String.format("URI: %s - Order %s - Authorization: %s", uriInfo.getAbsolutePath(), order, authorization);
     }
@@ -46,13 +45,13 @@ public class GreetingService {
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
     public String update(String message) {
-        System.out.println("Update");
+        logger.info("Update");
         return message;
     }
 
     @DELETE
     public void delete() {
-        System.out.println("Delete");
+        logger.info("Delete");
     }
 
     /*
@@ -63,6 +62,7 @@ public class GreetingService {
     @Path("{id}")
     public String lockResource(@PathParam("id") long id) {
         System.out.println("Locked");
+        logger.info("Locked");
         return id + " locked";
     }
 
