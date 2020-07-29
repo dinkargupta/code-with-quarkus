@@ -1,4 +1,4 @@
-package org.acme.base;
+package org.acme.services;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
-public class DeveloperServiceTest {
+public class DevelopmentServiceTest {
     
     @Test
     public void testDeveloperEndpoint() {
@@ -28,7 +28,7 @@ public class DeveloperServiceTest {
         given()
           .contentType(CONTENT_TYPE)
           .body(input)
-          .when().post("/developer")
+          .when().post("/development")
           .then()
             .statusCode(201)
             .body(is(EXPECTED_JSON));
@@ -39,7 +39,7 @@ public class DeveloperServiceTest {
     public void testDeveloperGrantsEndpoint() {
 
         given()
-                .when().get("/developer/grants")
+                .when().get("/development/grants")
                 .then()
                 .statusCode(200)
                 .body(is("[Read, Write, Update, Delete]"));
@@ -50,7 +50,7 @@ public class DeveloperServiceTest {
     public void testDevModeEndpoint() {
 
         given()
-                .when().get("/developer/devmode")
+                .when().get("/development/devmode")
                 .then()
                 .statusCode(200)
                 .body(is("true"));

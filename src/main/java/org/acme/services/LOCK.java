@@ -1,4 +1,4 @@
-package org.acme.base;
+package org.acme.services;
 
 import javax.ws.rs.HttpMethod;
 import java.lang.annotation.*;

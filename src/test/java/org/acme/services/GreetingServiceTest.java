@@ -1,4 +1,4 @@
-package org.acme.base;
+package org.acme.services;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.eclipse.microprofile.config.inject.ConfigProperty;

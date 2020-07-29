@@ -1,4 +1,4 @@
-package org.acme.base;
+package org.acme.services;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -8,8 +8,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.util.List;
 
-@Path("developer")
-public class DeveloperService {
+@Path("development")
+public class DevelopmentService {
     
 
     @POST
@@ -17,7 +17,7 @@ public class DeveloperService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createDeveloper(Developer developer) {
         developer.persist();
-        return Response.created(UriBuilder.fromResource(DeveloperService.class).path(Long.toString(developer.getId(), 0)).build()).entity(developer).build();
+        return Response.created(UriBuilder.fromResource(DevelopmentService.class).path(Long.toString(developer.getId(), 0)).build()).entity(developer).build();
     }
 
     @ConfigProperty(name="iam.permissions.granted")

@@ -1,4 +1,4 @@
-package org.acme.base;
+package org.acme.services;
 
 import io.quarkus.runtime.configuration.ProfileManager;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -39,7 +39,7 @@ public class GreetingService {
     @Consumes(MediaType.TEXT_PLAIN)
     public void create(String messgae) {
 
-        logger.info("Create");;
+        logger.info("Create");
     }
 
     @PUT
