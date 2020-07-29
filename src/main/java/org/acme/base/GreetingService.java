@@ -38,7 +38,8 @@ public class GreetingService {
     @POST
     @Consumes(MediaType.TEXT_PLAIN)
     public void create(String messgae) {
-        System.out.println("Create");
+
+        logger.info("Create");;
     }
 
     @PUT
