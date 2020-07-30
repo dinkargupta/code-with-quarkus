@@ -17,7 +17,7 @@ public class GreetingService {
         desc, asc
     }
 
-    private static Logger logger = Logger.getLogger(GreetingService.class);
+    private static final Logger logger = Logger.getLogger(GreetingService.class);
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello(@Context UriInfo uriInfo, @QueryParam("order") Order order, @NotBlank @HeaderParam("authorization") String authorization) {
