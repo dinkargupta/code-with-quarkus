@@ -2,6 +2,7 @@ package org.acme.services;
 
 import org.acme.model.Developer;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -15,7 +16,7 @@ public class DeveloperService {
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addDeveloper(Developer developer) {
+    public Response addDeveloper(@Valid Developer developer) {
         developers.add(developer);
         return Response.ok().build();
     }
