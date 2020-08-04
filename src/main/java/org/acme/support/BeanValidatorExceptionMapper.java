@@ -16,12 +16,12 @@ public class BeanValidatorExceptionMapper implements ExceptionMapper<ConstraintV
     @Override
     public Response toResponse(ConstraintViolationException exception) {
         return Response.status(Response.Status.BAD_REQUEST)
-                .entity(createErroMessage(exception))
+                .entity(createErrorMessage(exception))
                 .type(MediaType.APPLICATION_JSON)
                 .build();
     }
 
-    private JsonArray createErroMessage(ConstraintViolationException exception) {
+    private JsonArray createErrorMessage(ConstraintViolationException exception) {
         JsonArrayBuilder errors = Json.createArrayBuilder();
         for (ConstraintViolation<?> violation : exception.getConstraintViolations()) {
             errors.add(Json.createObjectBuilder()
