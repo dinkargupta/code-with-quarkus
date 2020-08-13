@@ -22,6 +22,6 @@ public class FoodResource {
     @Path("/{id}")
     @Produces("application/json")
     public Set<Food> getById(@PathParam("id") Integer id) {
-        return foodService.getById(12823);
+        return foodService.getById(id);
     }
 }
