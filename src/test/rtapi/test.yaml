@@ -1,0 +1,13 @@
+- target:
+    url: http://localhost:8080//developer/post
+    method: POST
+    body: '{"name":"Dinkar", "favouriteLanguage":"Java", "age":43}'
+    header:
+      Content-Type:
+        - application/json
+  query_parameters:
+    threads: 4
+    max_threads: 4
+    connections: 16
+    duration: 20s
+    request_rate: 5000

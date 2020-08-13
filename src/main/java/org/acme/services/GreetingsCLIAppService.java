@@ -1,4 +1,4 @@
-package org.acme.cliapp;
+package org.acme.services;
 
 import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
@@ -12,9 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GreetingsCLI implements QuarkusApplication {
+public class GreetingsCLIAppService implements QuarkusApplication {
 
-    private static final Logger logger = Logger.getLogger(GreetingsCLI.class);
+    private static final Logger logger = Logger.getLogger(GreetingsCLIAppService.class);
 
     @Override
     public int run(String... args) throws Exception {
@@ -28,7 +28,7 @@ public class GreetingsCLI implements QuarkusApplication {
         return 0;
     }
 
-    Map<List<Integer>, String> prepareDayPhaseMap() {
+    public Map<List<Integer>, String> prepareDayPhaseMap() {
         final Map<List<Integer>,String> hourPhaseMap = new HashMap<List<Integer>,String>();
         hourPhaseMap.put(Arrays.asList(1,2,3,4,5,6,7,8,9,10,11),"Morning");
         hourPhaseMap.put(Arrays.asList(12),"Noon");
@@ -38,7 +38,7 @@ public class GreetingsCLI implements QuarkusApplication {
         return hourPhaseMap;
     }
 
-    String resolveTimeGreeting(int currentHour, Map<List<Integer>, String> hourPhaseMap) {
+    public String resolveTimeGreeting(int currentHour, Map<List<Integer>, String> hourPhaseMap) {
         String phase = "Day";
         phase = hourPhaseMap.get(hourPhaseMap.keySet().stream().filter(n-> n.contains(currentHour)).findFirst().get());
         return phase;

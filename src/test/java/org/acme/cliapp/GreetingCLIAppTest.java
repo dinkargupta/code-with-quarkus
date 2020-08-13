@@ -1,6 +1,7 @@
 package org.acme.cliapp;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.acme.services.GreetingsCLIAppService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,19 +11,19 @@ public class GreetingCLIAppTest {
 
     @Test
     public void testMorningResolution() {
-        GreetingsCLI cliApp = new GreetingsCLI();
+        GreetingsCLIAppService cliApp = new GreetingsCLIAppService();
         assertEquals("Morning",cliApp.resolveTimeGreeting(8,cliApp.prepareDayPhaseMap()));
     }
 
     @Test
     public void testEveningResolution() {
-        GreetingsCLI cliApp = new GreetingsCLI();
+        GreetingsCLIAppService cliApp = new GreetingsCLIAppService();
         assertEquals("Evening",cliApp.resolveTimeGreeting(18,cliApp.prepareDayPhaseMap()));
     }
 
     @Test
     public void testNoonResolution() {
-        GreetingsCLI cliApp = new GreetingsCLI();
+        GreetingsCLIAppService cliApp = new GreetingsCLIAppService();
         assertEquals("Noon",cliApp.resolveTimeGreeting(12,cliApp.prepareDayPhaseMap()));
     }
 
