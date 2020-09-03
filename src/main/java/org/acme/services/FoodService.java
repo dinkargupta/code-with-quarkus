@@ -9,12 +9,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.Set;
 
-@Path("/v3")
+@Path("/v3/products")
 @RegisterRestClient
 public interface FoodService {
 
     @GET
-    @Path("/products/{id}")
+    @Path("/{id}")
     @Produces("application/json")
     public Set<Food> getById(@PathParam("id") Integer id);
 }

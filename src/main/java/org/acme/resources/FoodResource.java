@@ -12,7 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.Set;
 
-@Path("/products")
+@Path("/food")
 public class FoodResource {
     @Inject
     @RestClient
